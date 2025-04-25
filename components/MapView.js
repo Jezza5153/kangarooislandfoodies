@@ -1,4 +1,5 @@
 'use client';
+
 import { useJsApiLoader, GoogleMap, Marker } from '@react-google-maps/api';
 
 export default function MapView({ listings = [] }) {
@@ -15,13 +16,18 @@ export default function MapView({ listings = [] }) {
         center={{ lat: -35.8, lng: 137.3 }}
         zoom={10}
       >
-        {listings.map(item => (
-          <Marker
-            key={item.id}
-            position={{ lat: item.location.lat, lng: item.location.lng }}
-            title={item.name}
-          />
-        ))}
+        {listings.map(item => {
+          // support GeoPoint or manual Map fields
+          const lat = item.location.latitude ?? item.location.lat;
+          const lng = item.location.longitude ?? item.location.lng;
+          return (
+            <Marker
+              key={item.id}
+              position={{ lat, lng }}
+              title={item.name}
+            />
+          );
+        })}
       </GoogleMap>
     </div>
   );
