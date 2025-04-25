@@ -17,7 +17,7 @@ export default function MapView({ listings = [] }) {
         zoom={10}
       >
         {listings.map(item => {
-          // support GeoPoint or manual Map fields
+          // support GeoPoint (lat,lng) or manual fields (latitude,longitude)
           const lat = item.location.latitude ?? item.location.lat;
           const lng = item.location.longitude ?? item.location.lng;
           return (
@@ -32,3 +32,4 @@ export default function MapView({ listings = [] }) {
     </div>
   );
 }
+
