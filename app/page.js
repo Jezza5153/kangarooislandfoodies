@@ -1,4 +1,5 @@
 'use client';
+
 import dynamic from 'next/dynamic';
 import { useListings } from '../lib/useListings';
 import ListingCard from '../components/ListingCard';
@@ -22,3 +23,4 @@ export default function Home() {
     </main>
   );
 }
+
