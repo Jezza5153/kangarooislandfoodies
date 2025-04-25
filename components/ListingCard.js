@@ -1,4 +1,3 @@
-// components/ListingCard.tsx
 export default function ListingCard({ item }) {
   return (
     <div style={{ border: '1px solid #ccc', padding: '1rem' }}>
@@ -12,4 +11,3 @@ export default function ListingCard({ item }) {
     </div>
   );
 }
-
